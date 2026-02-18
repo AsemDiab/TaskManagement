@@ -17,6 +17,8 @@ body{
     background-color: var(--background);
     width: 100vw;
     height: 100vh;
+
+    padding: 50px 20px 100px;
  
 }
 
@@ -34,15 +36,17 @@ body{
     color:var(--primary-text);
 }
 
-.form #taskInput{
+#taskInput{
     width: 100%;
     height: 40px;
     border-radius: 25px;
     background: var(--input-background);
-    font-size: 32px;
+    font-size: 24px;
     padding-left: 12px;
     position: relative;
     color: var(--primary-text);
+    border: none;
+    flex-grow: 1;
 }
 
 
@@ -59,10 +63,19 @@ body{
     text-align: center;
 
 }
+
+.mutedMessage{
+    color:rgba(128, 128, 128, 0.54);
+    font-weight: 100;
+    font-style: italic;
+}
 .container{
-    width: 50%;
+    width: 100%;
+    max-width: 640px;
     height: auto;
     background: var(--secondary-background);
+    border-radius: 15px;
+    padding: 20px;
     
 }
 
@@ -70,7 +83,7 @@ body{
 
 .TasksContainer{
 padding: 12px;
-overflow-y: scroll;
+overflow-y: auto;
     max-height: 50vh;
 
 
@@ -78,7 +91,10 @@ overflow-y: scroll;
 }
 
 .ListHeader{
+        border-bottom: 1px var(--border) solid;
+
     color:var(--primary-text)
+    
 }
 
 .TaskList{
@@ -101,11 +117,27 @@ overflow-y: scroll;
 }
 
 
+.inputField{
+    display: flex;
+    flex-direction: row;
+    gap:12px;
+    width: 90%;
+    max-width: 512px;
+    justify-content: flex-start;
+}
 
+.inputField label{
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
 .TaskCard{
     padding: 0;
     margin: 0;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -120,8 +152,9 @@ overflow-y: scroll;
 }
 .scalingHover:hover{
     position: relative;
-    transform: scale(1.1);
+    transform: scale(1.05) ;
     transition-duration: 0.4s;
+    
 }
 
 .TaskCard p{
@@ -145,7 +178,7 @@ overflow-y: scroll;
     color:red
 }
 
-.empty{
-    visibility: hidden;
-    display: none;
+
+.done{
+    text-decoration: line-through;
 }
