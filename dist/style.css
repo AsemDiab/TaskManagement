@@ -1,3 +1,151 @@
+*{
+    --card-background:#1D293D;
+    --secondary-background:#172032;
+    --input-background:#334155;
+    --background:#0F172A;
+    --primary-text:#f8f8f8;
+    --primary-button:#3B82F6;
+    --border:#334155b5;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body{
-    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    width: 100vw;
+    height: 100vh;
+ 
+}
+
+.form{
+    width: 100%;
+    /* height: 200px; */
+    background: var(--secondary-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+    padding: 32px 24px  ;
+    padding-bottom: 0px;
+    color:var(--primary-text);
+}
+
+.form #taskInput{
+    width: 100%;
+    height: 40px;
+    border-radius: 25px;
+    background: var(--input-background);
+    font-size: 32px;
+    padding-left: 12px;
+    position: relative;
+    color: var(--primary-text);
+}
+
+
+
+.form #submitButton
+{
+    background: var(--primary-button);
+    color: var(--primary-text);
+    border: none;
+    width: 50%;
+    height: 40px;
+    border-radius: 25px;
+    font-size: 18px;
+    text-align: center;
+
+}
+.container{
+    width: 50%;
+    height: auto;
+    background: var(--secondary-background);
+    
+}
+
+
+
+.TasksContainer{
+padding: 12px;
+overflow-y: scroll;
+    max-height: 50vh;
+
+
+
+}
+
+.ListHeader{
+    color:var(--primary-text)
+}
+
+.TaskList{
+    width: 90%;
+    list-style: none;
+    list-style-type: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    padding:  0px 10px;
+    padding-top:5px ;
+    margin-left: 10%;
+    gap: 8px;
+
+
+
+    
+}
+
+
+
+.TaskCard{
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-background);
+    border: var(--border);
+    padding: 8px;
+    gap: 8px;
+    border-radius: 8px;
+    z-index: 5;
+    position: relative;
+
+}
+.scalingHover:hover{
+    position: relative;
+    transform: scale(1.1);
+    transition-duration: 0.4s;
+}
+
+.TaskCard p{
+    flex-grow: 1;
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    text-wrap:wrap;
+    color: var(--primary-text);
+
+}
+.deleteButton{
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: 0;
+    background-image: url('../public/delete.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color:red
+}
+
+.empty{
+    visibility: hidden;
+    display: none;
 }
