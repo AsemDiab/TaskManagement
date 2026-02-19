@@ -91,10 +91,40 @@ overflow-y: auto;
 }
 
 .ListHeader{
-        border-bottom: 1px var(--border) solid;
 
-    color:var(--primary-text)
+    color:var(--primary-text);
+    flex-grow: 1;
     
+}
+.head{
+        border-bottom: 1px var(--border) solid;
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+        padding-bottom: 8px;
+
+
+}
+#clearCompletedBtn ,#clearAllBtn{
+    padding: 12px;
+    padding-bottom: 0;
+    font-size:smaller;
+    background:transparent;
+    color: var(--primary-text);
+    border: 0;
+    /* border-radius: 12px; */
+    margin-bottom: 2px;
+    cursor: pointer;
+
+}
+#clearCompletedBtn:hover{
+    color: var(--primary-button);
+    border-bottom: 1px var(--primary-button) solid;
+}
+
+#clearAllBtn:hover{
+    color: red;
+    border-bottom: 1px red solid;
 }
 
 .TaskList{

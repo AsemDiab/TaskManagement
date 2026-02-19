@@ -21,6 +21,17 @@ var TaskManager = /** @class */ (function () {
     TaskManager.prototype.getTasks = function () {
         return this.tasks;
     };
+    TaskManager.prototype.clearCompleted = function () {
+        console.log(this.tasks);
+        this.tasks = this.tasks.filter(function (task) { return !task.status; });
+        TasksStorageManager.store(this.key, this.tasks);
+        buildTaskList();
+    };
+    TaskManager.prototype.clearAll = function () {
+        this.tasks = [];
+        TasksStorageManager.store(this.key, this.tasks);
+        buildTaskList();
+    };
     return TaskManager;
 }());
 var TasksStorageManager = /** @class */ (function () {
@@ -65,3 +76,8 @@ function buildTaskList() {
             : "<p class='mutedMessage'>no tasks</p>";
 }
 buildTaskList();
+document.getElementById("clearCompletedBtn").onclick =
+    function () { return taskManager.clearCompleted(); };
+document.getElementById("clearAllBtn").onclick = function () {
+    return taskManager.clearAll();
+};

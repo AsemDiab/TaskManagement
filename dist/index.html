@@ -15,29 +15,29 @@
   <body>
     <div class="container">
       <form onsubmit="handleSubmit(event)" class="form" id="TaskForm">
-       <div class="inputField">
-      <label for="taskInput"><h5>Task</h5></label>
-              <input type="text" name="" id="taskInput" />
-
-        
-
-
-       </div> 
-       <input
+        <div class="inputField">
+          <label for="taskInput"><h5>Task</h5></label>
+          <input type="text" name="" id="taskInput" />
+        </div>
+        <input
           type="submit"
           value="add task"
           id="submitButton"
           class="scalingHover"
         />
       </form>
-      
+
       <div class="TasksContainer">
-        <h1 class="ListHeader"><i>Tasks</i></h1>
+        <div class="head">
+          <h1 class="ListHeader"><i>Tasks</i></h1>
+          <div class="buttonContainer">
+            <button id="clearCompletedBtn">clear Completed</button>
+            <button id="clearAllBtn">clear all</button>
+          </div>
+        </div>
         <ul class="TaskList" id="TaskList"></ul>
       </div>
     </div>
-    <script src="./script.js">
-      
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>

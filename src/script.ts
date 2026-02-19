@@ -24,6 +24,18 @@ class TaskManager {
   getTasks(): Task[] {
     return this.tasks;
   }
+  clearCompleted() {
+    console.log(this.tasks);
+    this.tasks = this.tasks.filter((task) => !task.status);
+    TasksStorageManager.store(this.key, this.tasks);
+    buildTaskList();
+  }
+
+  clearAll() {
+    this.tasks = [];
+    TasksStorageManager.store(this.key, this.tasks);
+    buildTaskList();
+  }
 }
 
 class TasksStorageManager {
@@ -79,3 +91,9 @@ function buildTaskList() {
       : "<p class='mutedMessage'>no tasks</p>";
 }
 buildTaskList();
+
+(document.getElementById("clearCompletedBtn") as HTMLButtonElement).onclick =
+  () => taskManager.clearCompleted();
+
+(document.getElementById("clearAllBtn") as HTMLButtonElement).onclick = () =>
+  taskManager.clearAll();
