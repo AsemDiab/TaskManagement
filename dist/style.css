@@ -194,6 +194,8 @@ overflow-y: auto;
     flex-wrap: wrap;
     text-wrap:wrap;
     color: var(--primary-text);
+    max-width: 80%;
+    
 
 }
 .deleteButton{
@@ -211,4 +213,11 @@ overflow-y: auto;
 
 .done{
     text-decoration: line-through;
+}
+
+.expandButton{
+    font-size: smaller;
+    color: var(--primary-button);
+    cursor: pointer;
+    margin-left: 8px;
 }

@@ -1,4 +1,4 @@
-type Task = { task: string; status: boolean };
+type Task = { task: string; status: boolean; isExtended: boolean };
 class TaskManager {
   private tasks: Task[];
   private key: string = "tasks";
@@ -6,7 +6,7 @@ class TaskManager {
     this.tasks = TasksStorageManager.load(this.key);
   }
   addTask(task: string) {
-    this.tasks.push({ task, status: false });
+    this.tasks.push({ task, status: false, isExtended: false });
     TasksStorageManager.store(this.key, this.tasks);
   }
 
@@ -17,6 +17,13 @@ class TaskManager {
 
   toggleStatus(index: number) {
     if (index > -1) this.tasks[index].status = !this.tasks[index].status;
+    TasksStorageManager.store(this.key, this.tasks);
+    buildTaskList();
+  }
+
+  toggleExtended(index: number) {
+    if (index > -1)
+      this.tasks[index].isExtended = !this.tasks[index].isExtended;
     TasksStorageManager.store(this.key, this.tasks);
     buildTaskList();
   }
@@ -55,11 +62,29 @@ let taskManager = new TaskManager();
 (document.getElementById("TaskForm") as HTMLFormElement).onsubmit =
   handleSubmit;
 
-function CreateTaskCard(index: number, { task, status }: Task) {
-  console.log(index, { task, status });
+function contentGenrator(
+  index: number,
+  task: string,
+  status: boolean,
+  isExtended: boolean,
+) {
+  if (task.length > 20 && !isExtended)
+    return (
+      task.slice(0, 20) +
+      "..." +
+      `<span class="expandButton" onClick="taskManager.toggleExtended(${index})">show more</span>`
+    );
+  if (task.length > 20 && isExtended)
+    return (
+      task +
+      `<span class="expandButton" onClick="taskManager.toggleExtended(${index})">show less</span>`
+    );
+  return task;
+}
 
+function CreateTaskCard(index: number, { task, status, isExtended }: Task) {
   return `<li class="TaskCard scalingHover">
-          <input type="checkbox" name="" ${status ? "checked" : ""} id="" onChange="taskManager.toggleStatus(${index})" /><p class=${status ? "done" : ""}>${task}</p>
+          <input type="checkbox" name="" ${status ? "checked" : ""} id="" onChange="taskManager.toggleStatus(${index})" /><p  class=${status ? "done" : ""}>${contentGenrator(index, task, status, isExtended)}</p>
           <button class="deleteButton" onClick="handleDelete(${index})"></button> 
         </li>`;
 }
