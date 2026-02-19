@@ -16,7 +16,7 @@
     <div class="container">
       <form onsubmit="handleSubmit(event)" class="form" id="TaskForm">
        <div class="inputField">
-      <label for="taskInput">Task</label>
+      <label for="taskInput"><h5>Task</h5></label>
               <input type="text" name="" id="taskInput" />
 
         
@@ -37,42 +37,7 @@
       </div>
     </div>
     <script src="./script.js">
-      // document.getElementById("TaskForm").onsubmit = handleSubmit;
-      // let tasks = [];
-      // function toggleStatus(index) {
-      //   tasks[index].status = !tasks[index].status;
-      //   buildTaskList();
-      // }
-      // function CreateTaskCard(index, { task, status }) {
-      //   console.log(index, { task, status });
-
-      //   return `<li class="TaskCard scalingHover">
-      //     <input type="checkbox" name="" ${status ? "checked" : ""} id="" onChange="toggleStatus(${index})" /><p class=${status ? "done" : ""}>${task}</p>
-      //     <button class="deleteButton" onClick="handleDelete(${index})"></button> 
-      //   </li>`;
-      // }
-      // function handleDelete(index) {
-      //   if (index > -1) {
-      //     tasks.splice(index, 1);
-      //   }
-      //   buildTaskList();
-      // }
-      // function handleSubmit(e) {
-      //   e.preventDefault();
-      //   console.log("submit");
-      //   const task = document.getElementById("taskInput").value;
-      //   if (task.trim().length > 0) tasks.push({ task: task, status: false });
-      //   document.getElementById("taskInput").value=''
-      //   buildTaskList();
-      // }
-
-      // function buildTaskList() {
-      //   let i = 0;
-      //   document.getElementById("TaskList").innerHTML = tasks.length? tasks
-      //     .map((task) => CreateTaskCard(i++, task))
-      //     .join("\n"):"<p class='mutedMessage'>no tasks</p>";
-      // }
-      // buildTaskList()
+      
     </script>
   </body>
 </html>

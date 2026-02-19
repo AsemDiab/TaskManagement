@@ -16,6 +16,7 @@ var TaskManager = /** @class */ (function () {
         if (index > -1)
             this.tasks[index].status = !this.tasks[index].status;
         TasksStorageManager.store(this.key, this.tasks);
+        buildTaskList();
     };
     TaskManager.prototype.getTasks = function () {
         return this.tasks;
@@ -40,7 +41,7 @@ var taskManager = new TaskManager();
 function CreateTaskCard(index, _a) {
     var task = _a.task, status = _a.status;
     console.log(index, { task: task, status: status });
-    return "<li class=\"TaskCard scalingHover\">\n          <input type=\"checkbox\" name=\"\" ".concat(status ? "checked" : "", " id=\"\" onChange=\"toggleStatus(").concat(index, ")\" /><p class=").concat(status ? "done" : "", ">").concat(task, "</p>\n          <button class=\"deleteButton\" onClick=\"handleDelete(").concat(index, ")\"></button> \n        </li>");
+    return "<li class=\"TaskCard scalingHover\">\n          <input type=\"checkbox\" name=\"\" ".concat(status ? "checked" : "", " id=\"\" onChange=\"taskManager.toggleStatus(").concat(index, ")\" /><p class=").concat(status ? "done" : "", ">").concat(task, "</p>\n          <button class=\"deleteButton\" onClick=\"handleDelete(").concat(index, ")\"></button> \n        </li>");
 }
 function handleSubmit(e) {
     e.preventDefault();

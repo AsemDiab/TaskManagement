@@ -18,6 +18,7 @@ class TaskManager {
   toggleStatus(index: number) {
     if (index > -1) this.tasks[index].status = !this.tasks[index].status;
     TasksStorageManager.store(this.key, this.tasks);
+    buildTaskList();
   }
 
   getTasks(): Task[] {
@@ -49,7 +50,7 @@ function CreateTaskCard(
   console.log(index, { task, status });
 
   return `<li class="TaskCard scalingHover">
-          <input type="checkbox" name="" ${status ? "checked" : ""} id="" onChange="toggleStatus(${index})" /><p class=${status ? "done" : ""}>${task}</p>
+          <input type="checkbox" name="" ${status ? "checked" : ""} id="" onChange="taskManager.toggleStatus(${index})" /><p class=${status ? "done" : ""}>${task}</p>
           <button class="deleteButton" onClick="handleDelete(${index})"></button> 
         </li>`;
 }
