@@ -50,15 +50,12 @@ class TasksStorageManager {
     ) as Task[];
   }
 }
+let taskManager = new TaskManager();
 
 (document.getElementById("TaskForm") as HTMLFormElement).onsubmit =
   handleSubmit;
-let taskManager = new TaskManager();
 
-function CreateTaskCard(
-  index: number,
-  { task, status }: { task: string; status: boolean },
-) {
+function CreateTaskCard(index: number, { task, status }: Task) {
   console.log(index, { task, status });
 
   return `<li class="TaskCard scalingHover">

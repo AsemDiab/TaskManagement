@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // compile to ES2017 JS
+    "module": "commonjs", // Node.js module system
+    "moduleResolution": "node",
+    "lib": ["ES2017", "DOM"], // include Object.values and other modern APIs
+    "strict": true, // strict type checking
+    "rootDir": "./src",
+    "esModuleInterop": true, // import/export compatibility
+    "outDir": "dist" // compiled JS files go here
+  },
+  "include": ["./src/**/*.ts"], // include all TS files in the project
+}
