@@ -47,6 +47,15 @@ body{
     color: var(--primary-text);
     border: none;
     flex-grow: 1;
+    
+}
+
+#TaskInput::placeholder{
+    color:rgba(128, 128, 128, 0.54);
+    font-weight: 200;
+    font-style: italic;
+    font-size: 12px;
+    content: "Enter a task";
 }
 
 
@@ -195,7 +204,7 @@ overflow-y: auto;
     text-wrap:wrap;
     color: var(--primary-text);
     max-width: 80%;
-    
+
 
 }
 .deleteButton{
